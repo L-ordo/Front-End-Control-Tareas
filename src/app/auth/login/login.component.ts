@@ -22,14 +22,13 @@ export default class LoginComponent {
     this.authService.login(this.correo, this.password).subscribe(
       (response) => {
         console.log('Login exitoso', response);
-        // Guardar el usuario en localStorage
+        // guardamos  el usuario en localStorage
         this.authService.saveUser(response.user);
 
-        // Verificar el id del usuario
+        // verificamos el id del usuario
         const userId = this.authService.getUserId();
         console.log('ID del usuario logueado:', userId);
 
-        // Redirigir a la página deseada después de un login exitoso
         this.router.navigate(['tareas/resumen']);
       },
       (error) => {

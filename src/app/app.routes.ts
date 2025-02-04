@@ -7,6 +7,11 @@ export const routes: Routes = [
     loadComponent: () => import('./auth/login/login.component'),
   },
   {
+    path: 'registro',
+    title: 'Registro de Usurario',
+    loadComponent: () => import('./auth/registro/registro.component'),
+  },
+  {
     path: 'tareas',
     loadComponent: () => import('./Dashboard/dashboard.component'),
     children: [
@@ -36,5 +41,5 @@ export const routes: Routes = [
       },
     ],
   },
-  { path: '', redirectTo: 'login', pathMatch: 'full' }, // Redirección al login
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
 ];

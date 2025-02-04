@@ -37,4 +37,15 @@ export class TaskService {
     getPendingTasks(userId: number): Observable<any> {
       return this.http.get(`${this.apiUrl}/pendientes/${userId}`);
     }
+
+    //Metodo para completar una tarea
+    markAsCompleted(taskId: number): Observable<any> {
+      return this.http.put(`${this.apiUrl}/${taskId}/completar`, { completada: true });
+    }
+
+    // Método para editar una tarea
+    updateTask(taskId: number, updatedData: any): Observable<any> {
+    return this.http.put(`${this.apiUrl}/${taskId}`, updatedData);
+      }
+
 }

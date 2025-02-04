@@ -18,11 +18,13 @@ export default class CompletadasComponent implements OnInit{
 
 
     ngOnInit(): void {
-      const userId = this.authService.getUserId(); // Obtener el ID del usuario logueado
+      // obtenems el ID del usuario logueado
+      const userId = this.authService.getUserId();
       if (userId) {
         this.taskService.getCompletedTasks(userId).subscribe(
           (tasks) => {
-            this.completedTasks = tasks; //  Almacenar las tareas en el array
+            //  almacenamos  las tareas en el array
+            this.completedTasks = tasks;
           },
           (error) => {
             console.error('Error al obtener las tareas completadas', error);
